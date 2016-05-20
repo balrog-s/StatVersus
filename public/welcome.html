@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+          <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" type="text/css" href="css/main.css">
+     </head>
+     <body>
+     <div class="navbar navbar-inverse">
+          <div class="container-fluid">
+               <div class="navbar-header">
+                    <a class="navbar-brand" href="#"> StatVersus </a>
+               </div>
+          </div>
+     </div>
+
+          <div class="container-fluid">
+          <div class="row">
+               <div class = "col-xs-12">
+                    <center><h2>Enter the two summoners you would like to compare stats between!</h2></center>
+               </div>
+          </div>
+          <form id="names" method="post" action="/data">
+          <div class="row">
+               <div class="col-xs-12">
+                    <div class="row">
+                         <div class="col-xs-3"></div>
+                         <div class="col-xs-3">
+                              <input type="text" id="S1" name="sumname1" placeholder="Summoner One">
+                         </div>
+                         <div class="col-xs-3">
+                              <input type="text" id="S2" name="sumname2" placeholder="Summoner Two">
+                         </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                         <div class="col-xs-12"><input id="compareSubmit" type="submit" value="Compare"></div>
+                    </div>
+               </div>
+          </div>
+          </form>
+          </div>
+          <div id="result">
+               <div id="s1"></div>
+               <div id="s2"></div>
+          </div>
+          <script type="text/javascript">
+               $("#result").hide();
+               $('#names').submit(function(e){
+                    $.post($(this).attr('action'), $(this).serialize(), function(json) {
+                    $("#result").show();
+                    $("#s1").append("");
+                    $("#s1").append(json['Summoner_One'].totalChampionKills);
+                    }, 'json');
+               return false;
+     });
+</script>
+          </script>
+     </body>
+</html>

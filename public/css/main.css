@@ -1,0 +1,31 @@
+#compareSubmit{
+     position: absolute;
+     width: 10%;
+     left: 45%;
+     margin-top: 4%;
+}
+#S1{
+     position: absolute;
+     right:10px;
+     margin-top: 2%;
+}
+
+#S2{
+     position: absolute;
+     left: 10px;
+     margin-top: 2%;
+}
+
+#result{
+     position: absolute;
+     top: 50%;
+     width: 40%;
+     height: 50%;
+     left: 30%;
+     background-color:gray;
+}
+
+#result h3{
+     text-align: center;
+     color: white;
+}
